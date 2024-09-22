@@ -36,19 +36,13 @@ function App() {
         <p style={{ fontWeight: 800 }}>
           Status: {solarData.Timestamp ? "Active" : "Not Available"}
         </p>
-        <p>Local Time (Montreal): {solarData?.Timestamp ?? "Not Available"}</p>
-        <p>Solar Voltage: {solarData?.PVVoltage ?? "Not Available"}</p>
-        <p>Solar Current: {solarData?.PVCurrent ?? "Not Available"}</p>
-        <p>
-          Battery Percentage: {solarData?.BattPercentage ?? "Not Available"}
-        </p>
-        <p>Battery Voltage: {solarData?.BattVoltage ?? "Not Available"}</p>
-        <p>
-          System Power Consumption: {solarData?.LoadPower ?? "Not Available"}
-        </p>
-        <p>
-          CPU Power Consumption: {solarData?.CPUPowerDraw ?? "Not Available"}
-        </p>
+        <p>Local Time (Montreal): {solarData?.Timestamp ?? "Not Available"} </p>
+        <p>Solar Voltage: {solarData?.PVVoltage ?? "-1"}V </p>
+        <p>Solar Current: {solarData?.PVCurrent ?? "-1"}A</p>
+        <p>Battery Percentage: {solarData?.BattPercentage ?? "-1"}%</p>
+        <p>Battery Voltage: {solarData?.BattVoltage ?? "-1"}V</p>
+        <p>System Power Consumption: {solarData?.LoadPower ?? "0"}W</p>
+        <p>CPU Power Consumption: {solarData?.CPUPowerDraw ?? "0"}W</p>
       </div>
       <p className="read-the-docs">
         A Project by the TAG MC Bloc at Milieux Institute, Concordia University,
