@@ -2,6 +2,8 @@
 SunblockOne Static Status page 
 
 
+- Rename the sample.env file to `.env` and add the server endpoint. 
+
 ----
 ###  Vite Template Info 
 Currently, two official plugins are available:
