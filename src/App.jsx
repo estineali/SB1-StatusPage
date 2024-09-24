@@ -43,6 +43,7 @@ function App() {
         <p>Battery Voltage: {solarData?.BattVoltage ?? "-1"}V</p>
         <p>System Power Consumption: {solarData?.LoadPower ?? "0"}W</p>
         <p>CPU Power Consumption: {solarData?.CPUPowerDraw ?? "0"}W</p>
+        <p>Power Profile: {solarData?.PowerProfile ?? ""}</p>
       </div>
       <p className="read-the-docs">
         A Project by the TAG MC Bloc at Milieux Institute, Concordia University,
