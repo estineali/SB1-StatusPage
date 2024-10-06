@@ -1,28 +1,40 @@
 import { useEffect, useState } from "react";
-import reactLogo from "./assets/milieux.svg";
 import viteLogo from "/milieux.svg";
 import "./App.css";
+import { socket } from "./socket";
 
 function App() {
-  const [count, setCount] = useState(0);
   const [solarData, setSolarData] = useState({});
 
-  function FetchServerData() {
-    fetch(import.meta.env.VITE_SERVER_ENDPOINT)
-      .then(function (response) {
-        // The response is a Response instance.
-        // You parse the data into a useable format using `.json()`
-        return response.json();
-      })
-      .then(function (data) {
-        // `data` is the parsed version of the JSON returned from the above endpoint.
-        setSolarData(data); // { "timestamp": "", "PVVoltage": 1, }
-      });
-  }
+  const [isConnected, setIsConnected] = useState(socket.connected);
 
   useEffect(() => {
-    FetchServerData();
+    function onConnect() {
+      setIsConnected(true);
+    }
+
+    function onDisconnect() {
+      setIsConnected(false);
+    }
+
+    function onSolarDataEvent(value) {
+      console.log("SOLAR DATA RECEIVED: ");
+      console.log(value);
+      console.log("=======================");
+      setSolarData(value);
+    }
+
+    socket.on("connect", onConnect);
+    socket.on("disconnect", onDisconnect);
+    socket.on("solar_data", onSolarDataEvent);
+
+    return () => {
+      socket.off("connect", onConnect);
+      socket.off("disconnect", onDisconnect);
+      socket.off("solar_data", onSolarDataEvent);
+    };
   }, []);
+
 
   return (
     <>
