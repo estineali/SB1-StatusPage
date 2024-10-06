@@ -18,9 +18,6 @@ function App() {
     }
 
     function onSolarDataEvent(value) {
-      console.log("SOLAR DATA RECEIVED: ");
-      console.log(value);
-      console.log("=======================");
       setSolarData(value);
     }
 
