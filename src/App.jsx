@@ -42,6 +42,12 @@ function App() {
         </a>
       </div>
       <h1>SUNBLOCK ONE</h1>
+      <DataEntry
+        label={"Status: "}
+        data={solarData.Timestamp ? "Active" : "Not Available"}
+        noValidation={true}
+        style={{color: solarData.Timestamp ? "#7FFFB0" : "#FF7F7F"}}
+      />
       <div className="cards-container">
         <div className="card">
           <DataEntry
@@ -63,11 +69,6 @@ function App() {
           />
         </div>
         <div className="card">
-          <DataEntry
-            label={"Status: "}
-            data={solarData.Timestamp ? "Active" : "Not Available"}
-            noValidation={true}
-          />
           <DataEntry
             label={"System Power Draw: "}
             data={solarData?.LoadPower ?? -1}
