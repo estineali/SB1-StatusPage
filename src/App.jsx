@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import viteLogo from "/milieux.svg";
 import "./App.css";
 import { socket } from "./socket";
+import DataEntry from "./components/DataEntry";
+import ViewersIcon from "./components/ViewersIcon";
 
 function App() {
   const [solarData, setSolarData] = useState({});
@@ -40,20 +42,72 @@ function App() {
         </a>
       </div>
       <h1>Sunblock One</h1>
-      <div className="card">
-        <p style={{ fontWeight: 800 }}>
-          Status: {solarData.Timestamp ? "Active" : "Not Available"}
-        </p>
-        <p>Local Time (Montreal): {solarData?.Timestamp ?? "Not Available"} </p>
-        <p>Solar Voltage: {solarData?.PVVoltage ?? "-1"}V </p>
-        <p>Solar Current: {solarData?.PVCurrent ?? "-1"}A</p>
-        <p>Battery Percentage: {solarData?.BattPercentage ?? "-1"}%</p>
-        <p>Battery Voltage: {solarData?.BattVoltage ?? "-1"}V</p>
-        <p>System Power Consumption: {solarData?.LoadPower ?? "0"}W</p>
-        <p>CPU Power Consumption: {solarData?.CPUPowerDraw ?? "0"}W</p>
-        <p>Power Profile: {solarData?.PowerProfile ?? ""}</p>
-        <p>Active Users on Site: {solarData?.ConnectedUsers ?? "0"}</p>
+      <div className="cards-container">
+        <div className="card">
+          <DataEntry
+            label={"Solar Power: "}
+            data={solarData?.PVPower ?? -1}
+            unit={"W"}
+          />
+
+          <DataEntry
+            label={"Solar Voltage: "}
+            data={solarData?.PVVoltage ?? -1}
+            unit={"V"}
+          />
+
+          <DataEntry
+            label={"Solar Current: "}
+            data={solarData?.PVCurrent ?? -1}
+            unit={"A"}
+          />
+        </div>
+        <div className="card">
+          <DataEntry
+            label={"Status: "}
+            data={solarData.Timestamp ? "Active" : "Not Available"}
+            noValidation={true}
+          />
+          <DataEntry
+            label={"System Power Draw: "}
+            data={solarData?.LoadPower ?? -1}
+            unit={"W"}
+          />
+          <DataEntry
+            label={"CPU Power Draw: "}
+            data={solarData?.CPUPowerDraw ?? -1}
+            unit={"W"}
+          />
+
+          <DataEntry
+            label={"Power Profile: "}
+            data={solarData?.PowerProfile ?? "Unavailable"}
+            noValidation={true}
+          />
+        </div>
+
+        <div className="card">
+          <DataEntry
+            label={"Battery Voltage: "}
+            data={solarData?.BattVoltage ?? -1}
+            unit={"V"}
+          />
+          <DataEntry
+            label={"Battery Percentage: "}
+            data={solarData?.BattPercentage ?? -1}
+            unit={"%"}
+          />
+        </div>
       </div>
+
+      <DataEntry
+        label={"Local Time (Montreal): "}
+        data={solarData?.Timestamp ?? "Not Available"}
+        timeEntry={true}
+      />
+
+      <ViewersIcon viewerCount={solarData?.ConnectedUsers ?? "0"} />
+
       <p className="read-the-docs">
         A Project by the TAG MC Bloc at Milieux Institute, Concordia University,
         Montreal CA.
