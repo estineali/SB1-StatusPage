@@ -5,6 +5,9 @@ const DataEntry = (props) => {
     } else {
       try {
         const cleanedUp = parseFloat(data);
+        if (props.unit == "%") { 
+          return cleanedUp.toFixed(0);
+        }
         return cleanedUp.toFixed(2);
       } catch (error) {
         console.log(error);
@@ -14,8 +17,12 @@ const DataEntry = (props) => {
   }
 
   function parseTime(time) {
-    const timestamp = new Date(time);
-    return timestamp.toLocaleTimeString() + " - " + timestamp.toDateString();
+    if (time) {
+      const timestamp = new Date(time);
+      return timestamp.toLocaleTimeString() + " - " + timestamp.toDateString();
+    } else {
+      return "Not Available"
+    }
   }
   return (
     <div
@@ -31,7 +38,7 @@ const DataEntry = (props) => {
       <p style={{ marginLeft: 5 }}>
         {props.noValidation ? props.data : dataValidation(props.data)}{" "}
       </p>
-      <p style={{ fontWeight: 800, fontSize: 10 }}>{props.unit} </p>
+      <p style={{ fontWeight: 700, fontSize: 10 }}>{props.unit} </p>
     </div>
   );
 };
