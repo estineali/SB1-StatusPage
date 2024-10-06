@@ -35,7 +35,6 @@ function App() {
     };
   }, []);
 
-
   return (
     <>
       <div>
@@ -56,6 +55,7 @@ function App() {
         <p>System Power Consumption: {solarData?.LoadPower ?? "0"}W</p>
         <p>CPU Power Consumption: {solarData?.CPUPowerDraw ?? "0"}W</p>
         <p>Power Profile: {solarData?.PowerProfile ?? ""}</p>
+        <p>Active Users on Site: {solarData?.ConnectedUsers ?? "0"}</p>
       </div>
       <p className="read-the-docs">
         A Project by the TAG MC Bloc at Milieux Institute, Concordia University,
