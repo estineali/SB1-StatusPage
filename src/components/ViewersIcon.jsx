@@ -11,11 +11,11 @@ const ViewersIcon = (props) => {
         borderRadius: 10,
         justifyContent: "center",
         alignItems: "center",
-        marginLeft: "42%",
-        marginRight: "42%",
+        marginLeft: "40%",
+        marginRight: "40%",
       }}
     >
-      <EyeIcon style={{ marginRight: 15 }} />
+      <EyeIcon style={{ marginRight: 10 }} />
       <p style={{ fontWeight: 700 }}>
         {props.viewerCount < 100 ? props.viewerCount : "99+"}
       </p>
