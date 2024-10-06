@@ -99,14 +99,13 @@ function App() {
             unit={"%"}
           />
         </div>
+        <DataEntry
+          label={"Local Time (Montreal): "}
+          data={solarData?.Timestamp ?? null}
+          timeEntry={true}
+        />
         <ViewersIcon viewerCount={solarData?.ConnectedUsers ?? "0"} />
       </div>
-
-      <DataEntry
-        label={"Local Time (Montreal): "}
-        data={solarData?.Timestamp ?? null}
-        timeEntry={true}
-      />
 
       <p className="read-the-docs">
         A Project by the TAG MC Bloc at Milieux Institute, Concordia University,
