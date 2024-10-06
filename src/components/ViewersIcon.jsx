@@ -16,7 +16,7 @@ const ViewersIcon = (props) => {
       }}
     >
       <EyeIcon style={{ marginRight: 15 }} />
-      <p style={{ fontWeight: 800 }}>{props.viewerCount}</p>
+      <p style={{ fontWeight: 700 }}>{props.viewerCount}</p>
     </div>
   );
 };

@@ -41,7 +41,7 @@ function App() {
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
       </div>
-      <h1>Sunblock One</h1>
+      <h1>SUNBLOCK ONE</h1>
       <div className="cards-container">
         <div className="card">
           <DataEntry
@@ -102,7 +102,7 @@ function App() {
 
       <DataEntry
         label={"Local Time (Montreal): "}
-        data={solarData?.Timestamp ?? "Not Available"}
+        data={solarData?.Timestamp ?? null}
         timeEntry={true}
       />
 
