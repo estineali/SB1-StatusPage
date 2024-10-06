@@ -46,7 +46,7 @@ function App() {
         label={"Status: "}
         data={solarData.Timestamp ? "Active" : "Not Available"}
         noValidation={true}
-        style={{color: solarData.Timestamp ? "#7FFFB0" : "#FF7F7F"}}
+        style={{ color: solarData.Timestamp ? "#7FFFB0" : "#FF7F7F" }}
       />
       <div className="cards-container">
         <div className="card">
@@ -99,6 +99,7 @@ function App() {
             unit={"%"}
           />
         </div>
+        <ViewersIcon viewerCount={solarData?.ConnectedUsers ?? "0"} />
       </div>
 
       <DataEntry
@@ -106,8 +107,6 @@ function App() {
         data={solarData?.Timestamp ?? null}
         timeEntry={true}
       />
-
-      <ViewersIcon viewerCount={solarData?.ConnectedUsers ?? "0"} />
 
       <p className="read-the-docs">
         A Project by the TAG MC Bloc at Milieux Institute, Concordia University,

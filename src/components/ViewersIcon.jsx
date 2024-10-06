@@ -6,17 +6,19 @@ const ViewersIcon = (props) => {
       style={{
         display: "flex",
         flexDirection: "row",
-        width: 70,
         height: 40,
         backgroundColor: "rgba(0, 0, 0, 0.3)",
         borderRadius: 10,
         justifyContent: "center",
         alignItems: "center",
-        marginLeft: "45%",
+        marginLeft: "42%",
+        marginRight: "42%",
       }}
     >
       <EyeIcon style={{ marginRight: 15 }} />
-      <p style={{ fontWeight: 700 }}>{props.viewerCount}</p>
+      <p style={{ fontWeight: 700 }}>
+        {props.viewerCount < 100 ? props.viewerCount : "99+"}
+      </p>
     </div>
   );
 };
