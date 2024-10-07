@@ -51,21 +51,14 @@ function App() {
       <div className="cards-container">
         <div className="card">
           <DataEntry
-            label={"Solar Power: "}
-            data={solarData?.PVPower ?? -1}
-            unit={"W"}
-          />
-
-          <DataEntry
-            label={"Solar Voltage: "}
-            data={solarData?.PVVoltage ?? -1}
+            label={"Battery Voltage: "}
+            data={solarData?.BattVoltage ?? -1}
             unit={"V"}
           />
-
           <DataEntry
-            label={"Solar Current: "}
-            data={solarData?.PVCurrent ?? -1}
-            unit={"A"}
+            label={"Battery Percentage: "}
+            data={solarData?.BattPercentage ?? -1}
+            unit={"%"}
           />
         </div>
         <div className="card">
@@ -86,17 +79,23 @@ function App() {
             noValidation={true}
           />
         </div>
-
         <div className="card">
           <DataEntry
-            label={"Battery Voltage: "}
-            data={solarData?.BattVoltage ?? -1}
+            label={"Solar Power: "}
+            data={solarData?.PVPower ?? -1}
+            unit={"W"}
+          />
+
+          <DataEntry
+            label={"Solar Voltage: "}
+            data={solarData?.PVVoltage ?? -1}
             unit={"V"}
           />
+
           <DataEntry
-            label={"Battery Percentage: "}
-            data={solarData?.BattPercentage ?? -1}
-            unit={"%"}
+            label={"Solar Current: "}
+            data={solarData?.PVCurrent ?? -1}
+            unit={"A"}
           />
         </div>
         <DataEntry
