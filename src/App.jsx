@@ -51,14 +51,14 @@ function App() {
       <div className="cards-container">
         <div className="card">
           <DataEntry
-            label={"Battery Voltage: "}
-            data={solarData?.BattVoltage ?? -1}
-            unit={"V"}
-          />
-          <DataEntry
             label={"Battery Percentage: "}
             data={solarData?.BattPercentage ?? -1}
             unit={"%"}
+          />
+          <DataEntry
+            label={"Battery Voltage: "}
+            data={solarData?.BattVoltage ?? -1}
+            unit={"V"}
           />
         </div>
         <div className="card">
