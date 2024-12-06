@@ -37,7 +37,7 @@ function App() {
   return (
     <>
       <div>
-        <a href="https://github.com/MC-Bloc" target="_blank">
+        <a href="https://minecraftbloc.milieux.ca/sunblock/" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
       </div>
