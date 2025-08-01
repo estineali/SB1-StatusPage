@@ -41,7 +41,7 @@ function App() {
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
       </div>
-      <h1>SUNBLOCK ONE</h1>
+      <h1 style={{color: "white"}}>SUNBLOCK TWO</h1>
       <DataEntry
         label={"Status: "}
         data={solarData.Timestamp ? "Active" : "Not Available"}
@@ -49,6 +49,25 @@ function App() {
         style={{ color: solarData.Timestamp ? "#7FFFB0" : "#FF7F7F" }}
       />
       <div className="cards-container">
+        <div className="card">
+          <DataEntry
+            label={"Solar Power: "}
+            data={solarData?.PVPower ?? -1}
+            unit={"W"}
+          />
+
+          <DataEntry
+            label={"Solar Voltage: "}
+            data={solarData?.PVVoltage ?? -1}
+            unit={"V"}
+          />
+
+          <DataEntry
+            label={"Solar Current: "}
+            data={solarData?.PVCurrent ?? -1}
+            unit={"A"}
+          />
+        </div>
         <div className="card">
           <DataEntry
             label={"Battery Percentage: "}
@@ -79,25 +98,7 @@ function App() {
             noValidation={true}
           />
         </div>
-        <div className="card">
-          <DataEntry
-            label={"Solar Power: "}
-            data={solarData?.PVPower ?? -1}
-            unit={"W"}
-          />
 
-          <DataEntry
-            label={"Solar Voltage: "}
-            data={solarData?.PVVoltage ?? -1}
-            unit={"V"}
-          />
-
-          <DataEntry
-            label={"Solar Current: "}
-            data={solarData?.PVCurrent ?? -1}
-            unit={"A"}
-          />
-        </div>
         <DataEntry
           label={"Local Time (Montreal): "}
           data={solarData?.Timestamp ?? null}
