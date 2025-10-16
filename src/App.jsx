@@ -41,7 +41,7 @@ function App() {
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
       </div>
-      <h1 style={{color: "white"}}>SUNBLOCK TWO</h1>
+      <h1 style={{color: "white"}}>SUNBLOCK ONE</h1>
       <DataEntry
         label={"Status: "}
         data={solarData.Timestamp ? "Active" : "Not Available"}
